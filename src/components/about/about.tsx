@@ -13,7 +13,7 @@ workExperiences: { position: string; company: string, startDate: string, endDate
 
 }) => {
     return (
-        <Center m={100}>
+        <Center >
             <Stack>
                 <Grid gutter="xl" justify='space-apart'>
                     <GridCol  span={{ base: 12, lg: 4 }} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

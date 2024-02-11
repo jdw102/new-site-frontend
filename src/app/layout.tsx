@@ -5,6 +5,8 @@ import { MantineProvider, ColorSchemeScript, AppShellHeader, AppShellMain, AppSh
 import { theme } from '../../theme';
 import {Rubik} from 'next/font/google';
 import Navbar from "@/components/navbar/navbar";
+import '@mantine/carousel/styles.css';
+
 
 
 const rubik = Rubik({
