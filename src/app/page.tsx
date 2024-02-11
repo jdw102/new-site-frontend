@@ -3,17 +3,21 @@ import About from "@/components/about/about";
 import {getData, createURL } from "../lib/sanity-client";
 import { Divider } from "@mantine/core";
 import Projects from "@/components/projects/projects";
+import Contact from "@/components/contact/contact";
 
 export default async function Home() {
   const settingsURL = createURL("settings");
   const workExperiencesURL = createURL("workExperience");
   const projectsURL = createURL("project");
+  const skillsURL = createURL("skill");
   const settingsData = await getData(settingsURL);
   const workExperiencesData = await getData(workExperiencesURL);
   const projectsData = await getData(projectsURL);
+  const skillsData = await getData(skillsURL);
   const workExperiences = workExperiencesData.result;
   const homepageInfo = settingsData.result[0];
   const projects = projectsData.result;
+  const skills = skillsData.result;
   const landingInfo = {
     backgroundImage: homepageInfo.backgroundImage,
     avatar: homepageInfo.avatar,
@@ -35,15 +39,15 @@ export default async function Home() {
       </section>
       <Divider />
       <section id="about" style={{margin: '5rem'}}>
-        <About aboutInfo={aboutInfo} workExperiences={workExperiences}/>
+        <About aboutInfo={aboutInfo} workExperiences={workExperiences} skills={skills}/>
       </section>
       <Divider />
-      <section id="projects" >
+      <section id="projects" style={{marginBottom: '5rem', marginTop: '5rem'}}>
         <Projects projects={projects} blurb={homepageInfo.projectBlurb}/>
       </section>
       <Divider />
-      <section id="contact">
-        <div style={{height: '100vh'}}/>
+      <section id="contact" style={{backgroundColor: "var(--mantine-color-indigo-9)", padding:'2rem'}}>
+          <Contact blurb={homepageInfo.contactBlurb} email={homepageInfo.email} image={homepageInfo.contactImage} socialLinks={homepageInfo.socialLinks}/>
       </section>
     </main>
   );

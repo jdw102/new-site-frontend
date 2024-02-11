@@ -30,47 +30,42 @@ const Work: React.FC<MyComponentProps> = ({workExperiences}) => {
     workExperiences.sort((a, b) => {
         const dateA = new Date(a.startDate);
         const dateB = new Date(b.startDate);
-        if (dateA < dateB) {
+        if (dateA > dateB) {
           return -1;
         }
-        if (dateA > dateB) {
+        if (dateA < dateB) {
           return 1;
         }
         return 0;
       });
     return (
-        <div style={{marginTop: '5rem'}}>
+        <div >
             <Center>
                 <Stack>
-                <div style={{width: '100%', display: 'flex', justifyContent: "center"}}>
-                    <Title  order={3} pl ={30} pr = {30} mb={50} style={{textAlign: 'center',}}>
-                        Work Experience
-                    </Title>
-                </div>
-                <Timeline ml={100} active={workExperiences.length * 2 -1} bulletSize={10} color='indigo'>
-                    {
-                        workExperiences.map((workExperience, key) => (
-                            <>
-                                <TimelineItem key={key} title={workExperience.company} mb={20}
-                                bullet={
-                                    <img src={grabImage(workExperience.logo)}  height={50} style={{marginRight: 150, marginTop: 50}} alt={workExperience.company} />
-                                }
-                                >
-                                    <Text c="dimmed" size="sm">{workExperience.position}</Text>
-                                    <Text size="xs" mt={4}>{formatDate(workExperience.startDate)} - {formatDate(workExperience.endDate)}</Text>
-                                </TimelineItem>
-                                {
-                                key < workExperiences.length - 1 &&
+                    <Timeline ml={100} active={workExperiences.length * 2 -1} bulletSize={10} color='indigo'>
+                        {
+                            workExperiences.map((workExperience, key) => (
                                 <>
-                                <TimelineItem>
-                                    <Divider />
-                                </TimelineItem>
+                                    <TimelineItem key={key} title={workExperience.company} mb={20}
+                                    bullet={
+                                        <img src={grabImage(workExperience.logo)}  height={50} style={{marginRight: 150, marginTop: 50}} alt={workExperience.company} />
+                                    }
+                                    >
+                                        <Text c="dimmed" size="sm">{workExperience.position}</Text>
+                                        <Text size="xs" mt={4}>{formatDate(workExperience.startDate)} - {formatDate(workExperience.endDate)}</Text>
+                                    </TimelineItem>
+                                    {
+                                    key < workExperiences.length - 1 &&
+                                    <>
+                                    <TimelineItem>
+                                        <Divider />
+                                    </TimelineItem>
+                                    </>
+                                    }
                                 </>
-                                }
-                            </>
-                        ))
-                    }
-                </Timeline>
+                            ))
+                        }
+                    </Timeline>
                 </Stack>
             </Center>
         </div>

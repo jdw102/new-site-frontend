@@ -20,10 +20,11 @@ const getIcon = (icon: string) => {
     }
   }
 
-const SocialLinks = ({socialLinks, resume}:
+const SocialLinks = ({socialLinks, resume, size}:
     {
-        socialLinks: {url: string, icon: object, name: string}[],
-        resume: object
+        socialLinks: {url: string, name: string}[],
+        resume?: object,
+        size?: string
     }) => {
     return (
         <Center>
@@ -32,20 +33,23 @@ const SocialLinks = ({socialLinks, resume}:
                 socialLinks.map((socialLink, key) => (
                 <Tooltip key={key} label={socialLink.name} position="bottom">
                     <Anchor href={socialLink.url} target="_blank">
-                        <ActionIcon variant="outline" color="gray" radius="xl" size="xl">
+                        <ActionIcon variant="outline" color="gray" radius="xl" size={size? size: "xl"}>
                             {getIcon(socialLink.name)}
                         </ActionIcon>
                     </Anchor>
                 </Tooltip>
                 ))
             }
+            {
+            resume &&
             <Tooltip label = "Resume" position="bottom">
-                <ActionIcon variant="outline" color="gray" radius="xl" size="xl" onClick={() => {
+                <ActionIcon variant="outline" color="gray" radius="xl" size={size? size: "xl"} onClick={() => {
                     window.open(grabFile(resume), "_blank");
                 }}>
                 <IconFile width={"70%"} height={"70%"} size={40} />
                 </ActionIcon>
             </Tooltip>
+            }
             </Group>
       </Center>
     )

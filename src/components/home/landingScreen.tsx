@@ -14,7 +14,7 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
   avatar: {picture: object},
   welcomeMessage: string,
   name: string,
-  socialLinks: {url: string, icon: object, name: string}[],
+  socialLinks: {url: string, name: string}[],
   resume: object
 }}) => {
     

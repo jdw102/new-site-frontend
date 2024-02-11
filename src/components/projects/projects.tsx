@@ -29,13 +29,13 @@ const Projects = ({projects, blurb} : {
     return (
             <Grid gutter="none" justify='space-apart'>
                 <GridCol  span={{ base: 12, lg: 4 }} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <Stack gap="xl">
+                    <Stack gap="xl" >
                         <Center>
                             <Title order={2} pl ={30} pr = {30} style={{textAlign: 'center', borderBottom: '10px var(--mantine-color-indigo-7) solid'}} w={300}>
                                 Projects
                             </Title>
                         </Center>
-                        <Center>
+                        <Center >
                             <Text w={"70%"}>
                                 {blurb}
                             </Text>

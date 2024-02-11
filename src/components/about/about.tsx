@@ -2,14 +2,16 @@ import React from 'react'
 import { Stack, Title, Grid, GridCol, Center, Avatar  } from '@mantine/core';
 import { grabImage } from '@/lib/sanity-client';
 import Work from './work';
+import Skills from './skills';
 
 
-const About = ({aboutInfo , workExperiences}: {aboutInfo: {
+const About = ({aboutInfo , workExperiences, skills}: {aboutInfo: {
     aboutMe: string,
     title: string,
     image: object
 },
-workExperiences: { position: string; company: string, startDate: string, endDate: string, description: string, logo: object }[]
+workExperiences: { position: string; company: string, startDate: string, endDate: string, description: string, logo: object }[],
+skills: {name: string, type: string}[]
 
 }) => {
     return (
@@ -36,7 +38,24 @@ workExperiences: { position: string; company: string, startDate: string, endDate
                                 }
                     </GridCol>
                 </Grid>
-                <Work workExperiences={workExperiences}/>
+                <Grid mt={100}>
+                    <GridCol span={{bas: 12, md: 6}}>
+                        <div style={{width: '100%', display: 'flex', justifyContent: "center"}}>
+                            <Title  order={3} pl ={30} pr = {30} mb={50} style={{textAlign: 'center',}}>
+                                Work Experience
+                            </Title>
+                        </div>
+                        <Work workExperiences={workExperiences}/>
+                    </GridCol>
+                    <GridCol span={{bas: 12, md: 6}}>
+                        <div style={{width: '100%', display: 'flex', justifyContent: "center"}}>
+                            <Title  order={3} pl ={30} pr = {30} mb={50} style={{textAlign: 'center',}}>
+                                Skills
+                            </Title>
+                        </div>
+                        <Skills skills={skills}/>
+                    </GridCol>
+                </Grid>
             </Stack>
         </Center>
     )
