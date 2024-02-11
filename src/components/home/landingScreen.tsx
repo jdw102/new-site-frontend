@@ -1,14 +1,21 @@
 import React from 'react'
-import { Title, Button } from "@mantine/core";
+import { Title, Button, Group, ActionIcon, Center, Tooltip } from "@mantine/core";
 import Image from "next/image";
 import {grabImage} from "../../lib/sanity-client";
+import SocialLinks from './socialLinks';
+import ScrollDownArrow from './scrollDown';
+
+
+
 
 
 export const LandingScreen = async ({landingInfo}: {landingInfo: {
   backgroundImage: object,
   avatar: {picture: object},
   welcomeMessage: string,
-  name: string
+  name: string,
+  socialLinks: {url: string, icon: object, name: string}[],
+  resume: object
 }}) => {
     
     const messages = landingInfo.welcomeMessage.split('\n');
@@ -43,6 +50,10 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
               Contact Me
             </Button>
           </div>
+          <SocialLinks socialLinks={landingInfo.socialLinks} resume={landingInfo.resume}/>
+        </div>
+        <div style={{position: 'absolute', left: '2%', top: '70%'}}>
+          <ScrollDownArrow />
         </div>
       </div>
   )

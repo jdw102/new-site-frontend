@@ -16,7 +16,7 @@ export function grabImage (source) {
 
 
 export const grabFile = (source) => {
-  const ref = source.file.asset._ref;
+  const ref = source.asset._ref;
   const link = ref.slice(ref.indexOf('-') + 1, ref.lastIndexOf('-'));
   return `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_PROJECT_ID}/${process.env.NEXT_PUBLIC_DATASET}/${link}.pdf`;
 }

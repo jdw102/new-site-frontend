@@ -38,7 +38,6 @@ const Work: React.FC<MyComponentProps> = ({workExperiences}) => {
         }
         return 0;
       });
-    console.log(workExperiences);
     return (
         <div style={{marginTop: '5rem'}}>
             <Center>

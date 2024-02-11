@@ -14,13 +14,16 @@ export default async function Home() {
     backgroundImage: homepageInfo.backgroundImage,
     avatar: homepageInfo.avatar,
     welcomeMessage: homepageInfo.welcomeMessage,
-    name: homepageInfo.name
+    name: homepageInfo.name,
+    socialLinks: homepageInfo.socialLinks,
+    resume: homepageInfo.resume
   }
   const aboutInfo = {
     aboutMe: homepageInfo.about.aboutMe,
     title: homepageInfo.about.aboutTitle,
     image: homepageInfo.about.aboutImage
   }
+  console.log(landingInfo.resume);
 
 
   return (

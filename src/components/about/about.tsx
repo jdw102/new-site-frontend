@@ -9,7 +9,7 @@ const About = ({aboutInfo , workExperiences}: {aboutInfo: {
     title: string,
     image: object
 },
-workExperiences: Array<Object>
+workExperiences: { position: string; company: string, startDate: string, endDate: string, description: string, logo: object }[]
 
 }) => {
     return (
