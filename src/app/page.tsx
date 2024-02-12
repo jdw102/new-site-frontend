@@ -35,19 +35,24 @@ export default async function Home() {
   return (
     <main>
       <section id="home">
+        {landingInfo &&
         <LandingScreen landingInfo={landingInfo}/>
+        }
       </section>
       <Divider />
       <section id="about" style={{margin: '5rem'}}>
-        <About aboutInfo={aboutInfo} workExperiences={workExperiences} skills={skills}/>
+        {aboutInfo && workExperiences && skills &&
+        <About aboutInfo={aboutInfo} workExperiences={workExperiences} skills={skills}/>}
       </section>
       <Divider />
       <section id="projects" style={{marginBottom: '5rem', marginTop: '5rem'}}>
-        <Projects projects={projects} blurb={homepageInfo.projectBlurb}/>
+        {projects && homepageInfo &&
+        <Projects projects={projects} blurb={homepageInfo.projectBlurb}/>}
       </section>
       <Divider />
       <section id="contact" style={{backgroundColor: "var(--mantine-color-indigo-9)", padding:'2rem'}}>
-          <Contact blurb={homepageInfo.contactBlurb} email={homepageInfo.email} image={homepageInfo.contactImage} socialLinks={homepageInfo.socialLinks}/>
+        {homepageInfo &&
+          <Contact blurb={homepageInfo.contactBlurb} email={homepageInfo.email} image={homepageInfo.contactImage} socialLinks={homepageInfo.socialLinks}/>}
       </section>
     </main>
   );
