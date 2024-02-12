@@ -1,5 +1,5 @@
 import React from 'react'
-import { Timeline, TimelineItem, Text, Center, Title, Group, Stack, Badge, Divider } from '@mantine/core';
+import { Center, Title, Group, Stack, Badge, Divider } from '@mantine/core';
 
 const colorNames = ["red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"];
 

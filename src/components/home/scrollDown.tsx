@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { IconArrowDown } from '@tabler/icons-react';
-import { Text, Paper, Center, Divider, ActionIcon, Stack, Anchor } from '@mantine/core';
+import { Text, Stack, Anchor } from '@mantine/core';
 
 const ScrollDownArrow: React.FC = () => {
   const [isDownward, setIsDownward] = useState(true);
@@ -13,6 +13,8 @@ const ScrollDownArrow: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const [color, setColor] = useState('var(--mantine-color-gray-3)');
 
   return (
     <div style={{
@@ -26,11 +28,14 @@ const ScrollDownArrow: React.FC = () => {
                 element.scrollIntoView({ behavior: "smooth" });
             }
         }}>
-            <Stack>
-                <Text style={{  transform: 'rotate(-90deg) translateY(-110%)', marginTop: '3rem', marginBottom: '3rem',  }}>
+            <Stack 
+            onMouseEnter={() => setColor('var(--mantine-color-indigo-7)')}
+            onMouseLeave={() => setColor('var(--mantine-color-gray-3)')}
+            >
+                <Text style={{  transform: 'rotate(-90deg) translateY(-110%)', marginTop: '3rem', marginBottom: '3rem',  }} c={color}>
                     SCROLL DOWN
                 </Text>
-                <IconArrowDown size={50}  />
+                <IconArrowDown size={50} color={color}/>
             </Stack>
         </Anchor>
     </div>

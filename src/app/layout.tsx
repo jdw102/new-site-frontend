@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import '@mantine/core/styles.css';
 import React from 'react';
-import { MantineProvider, ColorSchemeScript, AppShellHeader, AppShellMain, AppShell, Group, Anchor } from '@mantine/core';
+import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../../theme';
 import {Rubik} from 'next/font/google';
-import Navbar from "@/components/navbar/navbar";
 import '@mantine/carousel/styles.css';
+import './global.css'
+import Shell from "./shell";
 
 
 
@@ -23,12 +24,7 @@ export const metadata: Metadata = {
 };
 
 
-const links = [
-  "Home",
-  "About",
-  "Projects",
-  "Contact"
-]
+
 
 
 export default function RootLayout({
@@ -48,12 +44,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme}  defaultColorScheme="dark">
-          <AppShell
-        header={{ height: 70 }}
-      >
-            <Navbar links={links} />
-            <AppShellMain>{children}</AppShellMain>
-          </AppShell>
+          <Shell>{children}</Shell>
         </MantineProvider>
       </body>
     </html>

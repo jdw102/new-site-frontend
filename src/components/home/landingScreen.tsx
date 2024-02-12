@@ -1,5 +1,5 @@
 import React from 'react'
-import { Title, Button, Group, ActionIcon, Center, Tooltip } from "@mantine/core";
+import { Title, Button } from "@mantine/core";
 import Image from "next/image";
 import {grabImage} from "../../lib/sanity-client";
 import SocialLinks from './socialLinks';
@@ -16,13 +16,15 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
   name: string,
   socialLinks: {url: string, name: string}[],
   resume: object
-}}) => {
+},
+
+}) => {
     
     const messages = landingInfo.welcomeMessage.split('\n');
     
 
   return (
-    <div style={{backgroundImage: `url(${grabImage(landingInfo.backgroundImage)})`, backgroundSize: 'cover', height: '100vh', position: 'relative'}}>
+    <div  className={`slide-up ${true ? 'slide-up-enter-done' : ''}`} style={{backgroundImage: `url(${grabImage(landingInfo.backgroundImage)})`, backgroundSize: 'cover', height: '100vh', position: 'relative'}}>
         <div style={{
           position: 'absolute',
           top: 0,
@@ -46,9 +48,11 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
             {messages[1]}
           </Title>
           <div style={{display: 'flex', justifyContent: 'center', margin: '3rem'}}>
-            <Button>
-              Contact Me
-            </Button>
+            <a href='#contact'>
+              <Button>
+                Contact Me
+              </Button>
+            </a>
           </div>
           <SocialLinks socialLinks={landingInfo.socialLinks} resume={landingInfo.resume}/>
         </div>

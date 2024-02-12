@@ -1,4 +1,4 @@
-import { Grid, GridCol, Text, Center, Title, Divider, rem } from '@mantine/core'
+import { Grid, GridCol, Center, Title } from '@mantine/core'
 import React from 'react'
 import SocialLinks from '../home/socialLinks'
 import Image from 'next/image'
@@ -42,7 +42,7 @@ const Contact = ({blurb, email, image, socialLinks} :
             </GridCol>
             <GridCol span={{base: 12, md: 4}}>
                 <Center>
-                    <Image src={grabImage(image)} alt="contact" height={300} width={400}/>
+                    <Image src={grabImage(image)} alt="contact" height={300} width={400} style={{borderRadius: '1rem'}}/>
                 </Center>
             </GridCol>
         </Grid>

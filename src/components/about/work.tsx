@@ -1,5 +1,5 @@
 import React from 'react'
-import { Timeline, TimelineItem, Text, Center, Title, Divider, Stack } from '@mantine/core';
+import { Timeline, TimelineItem, Text, Center, Divider, Stack } from '@mantine/core';
 import { grabImage } from '@/lib/sanity-client';
 
 

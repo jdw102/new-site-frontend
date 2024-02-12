@@ -1,18 +1,13 @@
 "use client";
 import React from 'react';
-import { AppShellHeader, Group, Anchor, Switch, Tooltip } from '@mantine/core';
+import { AppShellHeader, Group, Switch, Tooltip } from '@mantine/core';
 import {
     useMantineColorScheme,
   } from '@mantine/core';
+import Navlink from './navlink';
 
 
-const Navbar = ({links} : {links: Array<String>}) => {
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
+const Navbar = ({links} : {links: Array<string>}) => {
     const { colorScheme, setColorScheme } = useMantineColorScheme();
 
     return (
@@ -23,14 +18,9 @@ const Navbar = ({links} : {links: Array<String>}) => {
                         onChange={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
                         />
                     </Tooltip>
-                <Group>
+                <Group >
                 {links.map((link, key) => (
-                    <Anchor
-                    key={key}
-                    onClick={() => scrollToSection(link.toLowerCase())}
-                    c={colorScheme === 'dark' ? "gray.3" : "indigo"}>
-                    <h3>{link}</h3>
-                    </Anchor>
+                    <Navlink link={link} key={key}/>
                 ))}
                 </Group>
             </Group>
