@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import { AppShellMain, AppShell, AppShellNavbar, AppShellHeader, Group, Burger, Tooltip, Switch, Anchor, Divider, Center } from '@mantine/core';
+import { AppShellMain, AppShell, AppShellNavbar, AppShellHeader, Group, Burger, Tooltip, Switch, Divider } from '@mantine/core';
 import {
   useMantineColorScheme,
 } from '@mantine/core';

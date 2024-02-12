@@ -26,6 +26,23 @@ const SocialLinks = ({socialLinks, resume, size}:
         resume?: object,
         size?: string
     }) => {
+
+    const downloadPDF = async (link: string) => {
+      try {
+          const response = await fetch(link);
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'jerry_worthy_resume.pdf';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+      } catch (error) {
+          console.error('Error downloading PDF:', error);
+      }
+  };
+
     return (
         <Center>
             <Group>
@@ -44,7 +61,7 @@ const SocialLinks = ({socialLinks, resume, size}:
             resume &&
             <Tooltip label = "Resume" position="bottom">
                 <ActionIcon  variant="outline" radius="xl" size={size? size: "xl"} onClick={() => {
-                    window.open(grabFile(resume), "_blank");
+                    downloadPDF(grabFile(resume));
                 }}>
                 <IconFile width={"70%"} height={"70%"} size={40} color='var(--mantine-color-gray-3)' />
                 </ActionIcon >
