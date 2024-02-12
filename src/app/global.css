@@ -1,1 +1,69 @@
 html{scroll-behavior:smooth}
+.image-wrapper {
+    display: block;
+  }
+
+.landing-message {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
+  
+@media (max-width: 1200px) {
+    .image-wrapper {
+        display: none;
+    }
+
+    .landing-message {
+        position: absolute;
+        top: 20%;
+        left: 25%;
+    }
+
+    
+}
+
+
+@media (max-width: 768px) {
+    .down-arrow{
+        display: none;
+    }
+
+    .landing-message {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+    }
+}
+
+@media (max-width: 500px) {
+    .down-arrow{
+        display: none;
+    }
+
+    .landing-message {
+        position: absolute;
+        top: 20%;
+        left: 3%;
+    }
+}
+
+
+
+.image-container {
+
+    width: 100%;
+  
+    > div {
+      position: unset !important;
+    }
+  
+    .image {
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
+    }
+  }
+
+  

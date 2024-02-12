@@ -18,10 +18,10 @@ const ScrollDownArrow: React.FC = () => {
 
   return (
     <div style={{
-        display: 'inline-block',
         transition: 'transform 0.3s ease-in-out',
         transform: isDownward ? 'translateY(0)' : 'translateY(10px)', // Adjust translateY value for the amount of push
-    }}>
+    }}
+    className='down-arrow'>
         <Anchor onClick={() => {
             const element = document.getElementById('about');
             if (element) {

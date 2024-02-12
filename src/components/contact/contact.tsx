@@ -42,7 +42,9 @@ const Contact = ({blurb, email, image, socialLinks} :
             </GridCol>
             <GridCol span={{base: 12, md: 4}}>
                 <Center>
-                    <Image src={grabImage(image)} alt="contact" height={300} width={400} style={{borderRadius: '1rem'}}/>
+                    <div className='image-container'>
+                        <Image src={grabImage(image)} alt="contact" className="image" fill={true} style={{borderRadius: '1rem'}}/>
+                    </div>
                 </Center>
             </GridCol>
         </Grid>

@@ -19,7 +19,7 @@ const ProjectCard = ({project} :
         }
     }) => {
   return (
-    <Card shadow="sm" padding="lg" radius="md">
+    <Card shadow="sm" radius="md" >
         <CardSection>
                 <Image
                     alt={project.title}

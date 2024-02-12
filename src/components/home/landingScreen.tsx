@@ -24,17 +24,19 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
     
 
   return (
-    <div  className={`slide-up ${true ? 'slide-up-enter-done' : ''}`} style={{backgroundImage: `url(${grabImage(landingInfo.backgroundImage)})`, backgroundSize: 'cover', height: '100vh', position: 'relative'}}>
+    <div  className={`slide-up ${true ? 'slide-up-enter-done' : ''}`} style={{backgroundImage: `url(${grabImage(landingInfo.backgroundImage)})`, backgroundSize: 'cover', height: '90vh', position: 'relative'}}>
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
-          height: '100vh',
+          height: '90vh',
           backgroundColor: 'rgba(0, 0, 0, 0.85)', // Adjust opacity as needed
         }} />
-        <Image src={grabImage(landingInfo.avatar.picture)} alt="avatar" height={600} width={600} style={{position: 'absolute', bottom: '0', right: '0'}}/>
-        <div style={{position: 'absolute', left: '25%', top: '30%'}}>
+        <div className = 'image-wrapper'>
+          <Image src={grabImage(landingInfo.avatar.picture)} alt="avatar" height={500} width={500} style={{position: 'absolute', bottom: '0', right: '5%'}}/>
+        </div>
+        <div className='landing-message'>
           <Title order={3} style={{textAlign: 'center'}} c="gray.3">
             {messages[0]}
           </Title>
@@ -56,7 +58,7 @@ export const LandingScreen = async ({landingInfo}: {landingInfo: {
           </div>
           <SocialLinks socialLinks={landingInfo.socialLinks} resume={landingInfo.resume}/>
         </div>
-        <div style={{position: 'absolute', left: '2%', top: '70%'}}>
+        <div style={{position: 'absolute', left: '2%', top: '65%'}}>
           <ScrollDownArrow />
         </div>
       </div>
