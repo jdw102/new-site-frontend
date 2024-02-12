@@ -6,7 +6,7 @@ import { theme } from '../../theme';
 import {Rubik} from 'next/font/google';
 import '@mantine/carousel/styles.css';
 import './global.css'
-import Shell from "./shell";
+import Shell from "../components/navbar/navbar";
 
 
 
