@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card, CardSection, Anchor, Group, Text, Badge, Button, Image } from '@mantine/core'
+import { Card, CardSection, Anchor, Group, Text, Badge, Button, Image, Tooltip, ActionIcon } from '@mantine/core'
 import { grabImage } from '@/lib/sanity-client'
 import FileModal from './fileModal'
 import { useDisclosure } from '@mantine/hooks'
+import { IconBrandGithub } from '@tabler/icons-react'
 
 const ProjectCard = ({project} :
     {
@@ -15,7 +16,8 @@ const ProjectCard = ({project} :
                 link: string,
                 fieldType: string,
                 file: object,
-                text: string
+                text: string,
+                githubLink: string
             },
             thumbnail: object
         }
@@ -31,7 +33,16 @@ const ProjectCard = ({project} :
                 />
         </CardSection>
         <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500}>{project.title}</Text>
+            <Group>
+                <Text fw={500}>{project.title}</Text>
+                {project.viewLink.githubLink && 
+                <Tooltip label="View on Github" position="left" withArrow>
+                    <ActionIcon color="gray" variant="outline" size="sm">
+                        <IconBrandGithub size={20} onClick={() => window.open(project.viewLink.githubLink, "_blank")}/>
+                    </ActionIcon>
+                </Tooltip>
+                }
+            </Group>
             <Group>
             {
                 project.techStack.map((tech, key) => (

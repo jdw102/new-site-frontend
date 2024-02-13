@@ -19,7 +19,8 @@ const Projects = ({projects, blurb} : {
             link: string,
             fieldType: string,
             file: object,
-            text: string
+            text: string,
+            githubLink: string
         },
         thumbnail: object
     }[],
