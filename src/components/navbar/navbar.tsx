@@ -50,6 +50,7 @@ const Shell = ({
                 <Burger onClick={toggle} opened={opened} aria-label="Toggle navigation" hiddenFrom="sm" size="sm"/>
                 <Tooltip label="Toggle light/dark mode" position="bottom-start" refProp="rootRef" >
                     <Switch
+                    checked={colorScheme === 'dark'}
                     onChange={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
                     />
                 </Tooltip>
@@ -69,7 +70,7 @@ const Shell = ({
             <div key={key} >
               <div style={{marginLeft: '5rem'}}>
                 <Group>
-                  <Navlink  icon={link.icon} link={link.name} key={key} onClick={() => close()}/>
+                  <Navlink  icon={link.icon} link={link.name} onClick={() => close()}/>
                 </Group>
               </div>
               <Divider />

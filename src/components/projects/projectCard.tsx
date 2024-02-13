@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardSection, Anchor, Group, Text, Badge, Button, Image, Tooltip, ActionIcon } from '@mantine/core'
+import { Card, CardSection, Anchor, Group, Center, Text, Badge, Button, Image, Tooltip, ActionIcon } from '@mantine/core'
 import { grabImage } from '@/lib/sanity-client'
 import FileModal from './fileModal'
 import { useDisclosure } from '@mantine/hooks'
@@ -29,14 +29,14 @@ const ProjectCard = ({project} :
                 <Image
                     alt={project.title}
                     src={grabImage(project.thumbnail)}
-                    height={350}
+                    height={"100%"}
                 />
         </CardSection>
         <Group justify="space-between" mt="md" mb="xs">
             <Group>
                 <Text fw={500}>{project.title}</Text>
                 {project.viewLink.githubLink && 
-                <Tooltip label="View on Github" position="left" withArrow>
+                <Tooltip label="View on Github" withArrow>
                     <ActionIcon color="gray" variant="outline" size="sm">
                         <IconBrandGithub size={20} onClick={() => window.open(project.viewLink.githubLink, "_blank")}/>
                     </ActionIcon>

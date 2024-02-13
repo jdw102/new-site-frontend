@@ -1,7 +1,6 @@
-import { Grid, GridCol, Center, Title } from '@mantine/core'
+import { Grid, GridCol, Center, Title, Image } from '@mantine/core'
 import React from 'react'
 import SocialLinks from '../home/socialLinks'
-import Image from 'next/image'
 import { grabImage } from '@/lib/sanity-client'
 
 const Contact = ({blurb, email, image, socialLinks} :
@@ -42,9 +41,7 @@ const Contact = ({blurb, email, image, socialLinks} :
             </GridCol>
             <GridCol span={{base: 12, md: 4}}>
                 <Center>
-                    <div className='image-container'>
-                        <Image src={grabImage(image)} alt="contact" className="image" fill={true} style={{borderRadius: '1rem'}}/>
-                    </div>
+                    <Image src={grabImage(image)} alt="contact"  style={{borderRadius: '1rem'}}/>
                 </Center>
             </GridCol>
         </Grid>

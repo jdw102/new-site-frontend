@@ -30,8 +30,8 @@ const Skills = ({skills} : {
                 <Stack>
                 {
                     groupedArray && groupedArray.map((vals, key1) => (
-                        <>
-                            <div>
+                        <div key={key1}>
+                            <div style={{marginBottom: '1rem'}}>
                                 <Title order={4} m={8}>
                                     {vals[0]}
                                 </Title>
@@ -46,7 +46,7 @@ const Skills = ({skills} : {
                                 </Group>
                             </div>
                             <Divider />
-                        </>
+                        </ div>
                     ))
                 }
                 </Stack>

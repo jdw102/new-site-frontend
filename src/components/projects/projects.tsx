@@ -27,9 +27,10 @@ const Projects = ({projects, blurb} : {
     blurb: string
 }) => {
     const { colorScheme, setColorScheme } = useMantineColorScheme();
+    projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return (
             <Grid gutter="none" justify='space-apart'>
-                <GridCol mb={100} span={{ base: 12, lg: 4 }} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <GridCol mb={100} span={{ base: 12, lg: 5 }} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Stack gap="xl" >
                         <Center>
                             <Title order={2} pl ={30} pr = {30} style={{textAlign: 'center', borderBottom: '10px var(--mantine-color-indigo-7) solid'}} w={300}>
@@ -43,10 +44,9 @@ const Projects = ({projects, blurb} : {
                         </Center>
                     </Stack>
                 </GridCol>
-                <GridCol span={{ base: 12, lg: 8 }}  
+                <GridCol span={{ base: 12, lg: 7 }}  
                 bg={colorScheme === 'dark' ? "var(--mantine-color-dark-5)" : "var(--mantine-color-indigo-1)"}>
-                    <Center>
-                        <Carousel withIndicators dragFree controlsOffset="xs" slideGap="md" c="indigo" w={"100%"} align="center">
+                        <Carousel withIndicators dragFree controlsOffset="xs" c="indigo" w={"100%"} align="center">
                             {
                                 projects.map((project, key) => (
                                     <CarouselSlide key={key} p={30} pl={45} pr={60} style={{justifyContent: 'center'}}>
@@ -55,7 +55,6 @@ const Projects = ({projects, blurb} : {
                                 ))
                             }
                         </Carousel>
-                    </Center>
                 </GridCol>
             </Grid>
     )

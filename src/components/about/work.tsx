@@ -1,6 +1,7 @@
 import React from 'react'
 import { Timeline, TimelineItem, Text, Center, Divider, Stack } from '@mantine/core';
 import { grabImage } from '@/lib/sanity-client';
+import { Fragment } from 'react';
 
 
 type MyComponentProps = {
@@ -45,8 +46,8 @@ const Work: React.FC<MyComponentProps> = ({workExperiences}) => {
                     <Timeline ml={100} active={workExperiences.length * 2 -1} bulletSize={10} color='indigo'>
                         {
                             workExperiences.map((workExperience, key) => (
-                                < >
-                                    <TimelineItem key={key} title={workExperience.company} mb={20}
+                                <Fragment key={key}>
+                                    <TimelineItem title={workExperience.company} mb={20}
                                     bullet={
                                         <img src={grabImage(workExperience.logo)}  height={50} style={{marginRight: 150, marginTop: 50}} alt={workExperience.company} />
                                     }
@@ -62,7 +63,7 @@ const Work: React.FC<MyComponentProps> = ({workExperiences}) => {
                                     </TimelineItem>
                                     </>
                                     }
-                                </>
+                                </ Fragment>
                             ))
                         }
                     </Timeline>
