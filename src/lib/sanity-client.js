@@ -23,7 +23,7 @@ export const grabFile = (source) => {
 
 
 export async function getData(url) {
-  const res = await fetch(url, {next: {revalidate: 1}});
+  const res = await fetch(url, {next: {revalidate: 300}});
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
