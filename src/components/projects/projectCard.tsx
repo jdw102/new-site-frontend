@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, CardSection, Anchor, Group, Text, Badge, Button, Image } from '@mantine/core'
 import { grabImage } from '@/lib/sanity-client'
+import FileModal from './fileModal'
+import { useDisclosure } from '@mantine/hooks'
 
 const ProjectCard = ({project} :
     {
@@ -18,6 +20,7 @@ const ProjectCard = ({project} :
             thumbnail: object
         }
     }) => {
+  const [opened, { open, close }] = useDisclosure(false);
   return (
     <Card shadow="sm" radius="md" >
         <CardSection>
@@ -42,11 +45,21 @@ const ProjectCard = ({project} :
         <Text size="sm" c="dimmed">
             {project.description}
         </Text>
-        <Anchor href={project.viewLink.link} target="_blank" w={"100%"}>
-            <Button  fullWidth mt="md" radius="md">
-                {project.viewLink.text}
+        {
+            project.viewLink.fieldType == "string" ?
+            <Anchor href={project.viewLink.link} target="_blank" w={"100%"}>
+                <Button  fullWidth mt="md" radius="md">
+                    {project.viewLink.text}
+                </Button>
+            </Anchor>
+            :
+            <Button  fullWidth mt="md" radius="md" onClick={() => open()}>
+                    {project.viewLink.text}
             </Button>
-        </Anchor>
+        }
+        {
+        project.viewLink.fieldType == "file" && <FileModal document={project.viewLink.file} title={project.title} opened={opened} close={close}/>
+        }
     </Card>
   )
 }
