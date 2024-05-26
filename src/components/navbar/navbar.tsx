@@ -7,6 +7,7 @@ import {
 import Navlink from '@/components/navbar/navlink';
 import { useDisclosure } from '@mantine/hooks';
 import { IconHome, IconInfoCircle, IconTools, IconMessage } from '@tabler/icons-react';
+import { useHeadroom } from '@mantine/hooks';
 
 
 const links = [
@@ -35,10 +36,11 @@ const Shell = ({
 }>) => {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
   const [opened, {open, close, toggle}] = useDisclosure();
+  const pinned = useHeadroom({ fixedAt: 120 });
   
   return (
     <AppShell
-        header={{ height: 70 }}
+        header={{ height: 70, collapsed: !pinned, offset: false }}
         navbar={{
           width: 10,
           breakpoint: 'sm',
@@ -61,7 +63,7 @@ const Shell = ({
                 </Group>
             </Group>
         </AppShellHeader>
-      <AppShellMain>
+      <AppShellMain style={{marginTop: 70}}>
         {children}
       </AppShellMain>
       <AppShellNavbar  hiddenFrom="sm" w={300}>
