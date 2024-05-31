@@ -10,7 +10,7 @@ export function createURL (type) {
 export function grabImage (source) {
     const link = source.asset._ref.slice(6, source.asset._ref.lastIndexOf('-'));
     const filetype = source.asset._ref.slice(source.asset._ref.lastIndexOf('-') + 1, source.asset._ref.lastIndexOf('-') + 4);
-    let url =  `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_PROJECT_ID}/${process.env.NEXT_PUBLIC_DATASET}/${link}.${filetype}`;
+    let url =  `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_PROJECT_ID}/${process.env.NEXT_PUBLIC_DATASET}/${link}.${filetype}?auto=format`;
     return url;
 }
 
@@ -23,6 +23,7 @@ export const grabFile = (source) => {
 
 
 export async function getData(url) {
+  console.log(url)
   const res = await fetch(url, {next: {revalidate: 300}});
   if (!res.ok) {
     throw new Error('Failed to fetch data')

@@ -35,44 +35,44 @@ const Shell = ({
   children: React.ReactNode;
 }>) => {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
-  const [opened, {open, close, toggle}] = useDisclosure();
+  const [opened, { open, close, toggle }] = useDisclosure();
   const pinned = useHeadroom({ fixedAt: 120 });
-  
+
   return (
     <AppShell
-        header={{ height: 70, collapsed: !pinned, offset: false }}
-        navbar={{
-          width: 10,
-          breakpoint: 'sm',
-          collapsed: { desktop: true, mobile: !opened },
-        }}
-      >
+      header={{ height: 70, collapsed: !pinned && !opened, offset: false }}
+      navbar={{
+        width: 10,
+        breakpoint: 'sm',
+        collapsed: { desktop: true, mobile: !opened },
+      }}
+    >
       <AppShellHeader >
-            <Group h="100%"  px="xl"  justify="space-between" >
-                <Burger onClick={toggle} opened={opened} aria-label="Toggle navigation" hiddenFrom="sm" size="sm"/>
-                <Tooltip label="Toggle light/dark mode" position="bottom-start" refProp="rootRef" >
-                    <Switch
-                    checked={colorScheme === 'dark'}
-                    onChange={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
-                    />
-                </Tooltip>
-                <Group visibleFrom='sm'>
-                {links.map((link, key) => (
-                    <Navlink link={link.name} key={key}/>
-                ))}
-                </Group>
-            </Group>
-        </AppShellHeader>
-      <AppShellMain style={{marginTop: 70}}>
+        <Group h="100%" px="xl" justify="space-between" >
+          <Burger onClick={toggle} opened={opened} aria-label="Toggle navigation" hiddenFrom="sm" size="sm" />
+          <Tooltip label="Toggle light/dark mode" position="bottom-start" refProp="rootRef" >
+            <Switch
+              checked={colorScheme === 'dark'}
+              onChange={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
+            />
+          </Tooltip>
+          <Group visibleFrom='sm'>
+            {links.map((link, key) => (
+              <Navlink link={link.name} key={key} />
+            ))}
+          </Group>
+        </Group>
+      </AppShellHeader>
+      <AppShellMain style={{ marginTop: 70 }}>
         {children}
       </AppShellMain>
-      <AppShellNavbar  hiddenFrom="sm" w={300}>
+      <AppShellNavbar hiddenFrom="sm" w={300} mt={70}>
         {
           links.map((link, key) => (
             <div key={key} >
-              <div style={{marginLeft: '5rem'}}>
+              <div style={{ marginLeft: '5rem' }}>
                 <Group>
-                  <Navlink  icon={link.icon} link={link.name} onClick={() => close()}/>
+                  <Navlink icon={link.icon} link={link.name} onClick={() => close()} />
                 </Group>
               </div>
               <Divider />

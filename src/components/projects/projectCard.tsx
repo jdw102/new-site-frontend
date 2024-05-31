@@ -29,7 +29,7 @@ const ProjectCard = ({project} :
                 <Image
                     alt={project.title}
                     src={grabImage(project.thumbnail)}
-                    height={"100%"}
+                    height={"400vh"}
                 />
         </CardSection>
         <Group justify="space-between" mt="md" mb="xs">
